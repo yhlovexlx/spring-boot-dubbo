@@ -1,0 +1,50 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
+    username: root
+    password: root
+    #配置监控统计拦截的filters，去掉之后监控界面SQL将无法统计，wall用于防火墙
+    filters: stat, wall, log4j
+    #初始化数量,最小，最大
+    initialSize:  5
+    minIdle: 5
+    #最大活跃数
+    maxActive: 20
+    #最大连接等待超时时间
+    maxWait: 60000
+    #打开PSCache,并且指定每个连接PSCache的大小
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    #通过connectionProperties属性来打开mergeSql功能；慢sql记录
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+  jpa:
+    hibernate:
+      #create 代表在数据库创建表，update 代表更新，首次启动需要create ,如果你想通过hibernate 注解的方式创建数据库的表的话，之后需要改为 update.
+      ddl-auto: update
+    properties:
+      hibernate:
+        #格式化SQL
+        format_sql: true
+        #打印SQL
+        show-sql: true
+  dubbo:
+    application:
+      name: dubbo-service
+    registry:
+      address: zookeeper://127.0.0.1:2181
+      group: spring
+      timeout: 5000
+    protocol:
+      name: dubbo
+      port: 20880
+    scan: com.jeecx.service
+
