@@ -1,9 +1,6 @@
 <!-- 项目结构 -->
 <!DOCTYPE html>
 <html>
-<head>
-	<title></title>
-</head>
 <body>
     <h2>#各模块功能</h2>
 	<table border="1px">
