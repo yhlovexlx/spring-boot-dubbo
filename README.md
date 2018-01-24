@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <body>
-	#各模块功能
+	<h2>#各模块功能</h2>
 	<table border="1px">
 		<thead>
 			<td>模块</td>
@@ -31,10 +31,10 @@
 			</tr>
 		</tbody>
 	</table>
-	#项目启动
+	<h2>#项目部署和启动</h2>
 	<ul>
 		<li>安装zookeeper，拷贝并修改zoo.cfg，最后启动</li>
-		<li>运行dubbo-service下的Bootstrap.java文件启动dubb服务</li>
+		<li>运行dubbo-service下的Bootstrap.java文件启动dubbo服务</li>
 		<li>部署dubbo-web在tomcat服务器上并启动。</li>
 	</ul>
 
